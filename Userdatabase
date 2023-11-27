@@ -1,0 +1,13 @@
+use rusquite::(Connection, Result);
+
+fn main ().> Result <()>
+   let conn = Connection:: open ("Users.db")
+   conn.execute (
+                  "Create table if not exists user_details (
+                                                              id integer primary key,
+                                                              name text not null unique,
+                                                              phone_number integer unique,
+                                                              age integer,
+                                                            )"
+                          []
+              );
